@@ -11,6 +11,7 @@
     "ci": "npm run lint:js && npm run cover",
     "lint:js": "eslint src/**/*.js test/**/*.js",
     "cover": "nyc mocha --recursive",
+    "cover:report": "nyc report --reporter=text-lcov",
     "test": "mocha --require babel-register --recursive"
   },
   "repository": {
