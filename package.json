@@ -10,8 +10,8 @@
   "scripts": {
     "ci": "npm run lint:js && npm run cover | coveralls",
     "lint:js": "eslint src/**/*.js test/**/*.js",
-    "cover": "mocha --require blanket --require babel-register --reporter mocha-lcov-reporter --recursive",
-    "test": "mocha --require blanket --require babel-register --recursive"
+    "cover": "nyc mocha --recursive",
+    "test": "mocha --require babel-register --recursive"
   },
   "repository": {
     "type": "git",
@@ -29,16 +29,16 @@
   },
   "homepage": "https://github.com/mishfit/chessboardjs-react#readme",
   "devDependencies": {
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "blanket": "^1.2.3",
     "coveralls": "^3.0.0",
     "eslint": "^4.18.2",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-mocha": "^4.12.1",
     "eslint-plugin-node": "^6.0.1",
     "mocha": "^5.0.1",
-    "mocha-lcov-reporter": "^1.3.0"
+    "nyc": "^11.4.1"
   },
   "engines": {
     "node": ">= 4.x <= 9.x",
