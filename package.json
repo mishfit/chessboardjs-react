@@ -1,0 +1,28 @@
+{
+  "name": "chessboardjs-react",
+  "version": "0.0.1",
+  "description": "A reactified JavaScript chessboard",
+  "main": "src/index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mishfit/chessboardjs-react.git"
+  },
+  "keywords": [
+    "chess",
+    "chessboard",
+    "react"
+  ],
+  "author": "Mish Ochu <mishochu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mishfit/chessboardjs-react/issues"
+  },
+  "homepage": "https://github.com/mishfit/chessboardjs-react#readme"
+}
