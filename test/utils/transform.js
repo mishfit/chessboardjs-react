@@ -1,16 +1,16 @@
 /*global describe */
 /*global it */
-/*eslint no-console: ["error", { allow: ["log"] }] */
+/*global assert */
 
-//import assert from 'assert'
+import assert from 'assert'
 import { fenToObj } from '../../src/utils/transforms'
+const obj = require('../data/fenToObj.json')
 
-describe('util/transform', function() {
+describe('utils/transform', function() {
   describe('#fenToObj()', function() {
     it('can create an object', function() {
       const fen = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R'
-      console.log(fen)
-      console.log(fenToObj(fen))
+      assert(JSON.stringify(obj), JSON.stringify(fenToObj(fen)))
     })
   })
 })
