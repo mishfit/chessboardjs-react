@@ -1,4 +1,4 @@
-export const columns = 'abcdefgh'.split('')
+import { fenToObj } from './utils/transforms'
 export const defaultDragThrottleRate = 20
 export const ellipsis = '...'
 export const runAsserts = true

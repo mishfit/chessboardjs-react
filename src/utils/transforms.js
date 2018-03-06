@@ -1,5 +1,8 @@
-import { columns } from '../constants'
+/*eslint no-console: ["error", { allow: ["log"] }] */
+
 import { isValidFen } from '../validators/board'
+
+export const columns = 'abcdefgh'.split('')
 
 export function squeezeFenEmptySquares (fen) {
   return fen.replace(/11111111/g, '8')
@@ -51,13 +54,16 @@ export function fenToObj (fen) {
     .map((pieceCandidate, pieceCandidateIndex) => {
       if (pieceCandidate) {
         const square = `${columns[pieceCandidateIndex]}${8 - index}`,
-        piece = fenToPieceCode(pieceCandidate)
-        return { square, piece }
+        code = fenToPieceCode(pieceCandidate)
+        return { square, code }
       } else return pieceCandidate
     })
     .filter(pieceCandidate => pieceCandidate !== undefined)
   })
+  .reduce((a,b) => { return a.concat(b) })
   .reduce((accumulator, piece) => {
-    return Object.defineProperty(accumulator, piece.square, { value: piece.code })
+    accumulator[piece.square] = piece.code
+    return accumulator
   }, {})
 }
+

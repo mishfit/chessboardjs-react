@@ -28,7 +28,7 @@ export function isValidFen (fen) {
   fen = expandFenEmptySquares(fen)
 
   // FEN should be 8 sections separated by slashes
-  return fen.split('/').every((chunk) => chunk.search(/[^kqrnbpKQRNBP1]/) !== -1)
+  return fen.split('/').every((chunk) => chunk.search(/^[kqrnbpKQRNBP1]/) !== -1)
 }
 
 export function isValidPositionObject (pos) {

@@ -16,7 +16,7 @@ export function throttle (f, interval, scope) {
     f.apply(scope, args)
   }
 
-  return function (_args) {
+  return function () {
     args = arguments
     if (!timeout) {
       fire()
@@ -27,7 +27,7 @@ export function throttle (f, interval, scope) {
 }
 
 export function uuid () {
-    return 'xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/x/g, function (c) {
+    return 'xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/x/g, function () {
       const r = (Math.random() * 16) | 0
       return r.toString(16)
     })
@@ -44,7 +44,7 @@ export function deepCopy (thing) {
 export function interpolateTemplate(template, data) {
  return Object.keys(data)
     .map(key => { return { value: data[key], token: `{${key}}` } })
-    .reduce((accumulator, tokenValuePair, i, all) => {
+    .reduce((accumulator, tokenValuePair) => {
       return accumulator.split(tokenValuePair.token)
         .join(tokenValuePair.value)
     }, template)
