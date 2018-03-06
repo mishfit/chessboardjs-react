@@ -1,6 +1,5 @@
 /*global describe */
 /*global it */
-/*global assert */
 
 import assert from 'assert'
 import { fenToObj } from '../../src/utils/transforms'
