@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "ci": "npm run lint:js && npm run cover | coveralls",
+    "ci": "npm run lint:js && npm run cover",
     "lint:js": "eslint src/**/*.js test/**/*.js",
     "cover": "nyc mocha --recursive",
     "test": "mocha --require babel-register --recursive"

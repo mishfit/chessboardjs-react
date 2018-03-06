@@ -6,3 +6,5 @@ cache:
 
 script:
   - npm run ci
+after_script:
+  -  nyc report --reporter=text-lcov | coveralls
