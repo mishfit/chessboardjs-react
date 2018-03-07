@@ -1,3 +1,5 @@
+/*eslint no-console: ["error", { allow: ["log"] }] */
+const DEBUG = false
 export function throttle (f, interval, scope) {
   let timeout = 0,
       shouldFire = false,
@@ -50,4 +52,8 @@ export function interpolateTemplate(template, data) {
     }, template)
 }
 
+function getLogger () {
+  return DEBUG ? console.log : () => {}
+}
 
+export const log = getLogger()

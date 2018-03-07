@@ -1,5 +1,6 @@
 import { isString, } from './system'
 import { expandFenEmptySquares } from '../utils/transforms'
+import { log } from '../utils/system'
 
 export function isValidMove (move) {
   // move should be a string
@@ -22,13 +23,22 @@ export function isValidFen (fen) {
 
   // cut off any move, castling, etc info from the end
   // only interested in position information
+
+  log(fen)
   fen = fen.replace(/ .+$/, '')
+  log(fen)
 
   // expand the empty square numbers to just 1s
   fen = expandFenEmptySquares(fen)
+  log(fen)
 
+  const chunks = fen.split('/')
+  log(chunks)
+
+  chunks.forEach(chunk => log(chunk.search(/[^kqrnbpKQRNBP1]/)))
   // FEN should be 8 sections separated by slashes
-  return fen.split('/').every((chunk) => chunk.search(/^[kqrnbpKQRNBP1]/) !== -1)
+  return chunks.length === 8 &&
+    chunks.every(chunk => chunk.search(/[^kqrnbpKQRNBP1]/) === -1 && chunk.length === 8)
 }
 
 export function isValidPositionObject (pos) {

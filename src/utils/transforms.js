@@ -1,6 +1,4 @@
-/*eslint no-console: ["error", { allow: ["log"] }] */
-
-import { isValidFen } from '../validators/board'
+import { isValidFen, isValidPositionObject } from '../validators/board'
 
 export const columns = 'abcdefgh'.split('')
 
@@ -65,5 +63,9 @@ export function fenToObj (fen) {
     accumulator[piece.square] = piece.code
     return accumulator
   }, {})
+}
+
+export function objToFen(obj) {
+  if (!isValidPositionObject(obj)) return false
 }
 
